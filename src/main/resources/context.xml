@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+
+    <import resource="models.xml"/>
+
+    <bean id="iamservice" class="com.epam.spring.model.Cat"/>
+
+    <context:component-scan base-package="com.epam.spring"/>
 
     <bean id="catRepository" class="com.epam.spring.repository.CatRepositoryImpl" destroy-method="destroy">
         <constructor-arg name="cats">
@@ -17,15 +24,7 @@
     <bean id="catFactory" class="com.epam.spring.factories.CatFactory"/>
 
     <bean id="cat" name="cat alias" scope="prototype" factory-bean="catFactory" factory-method="getObject"
-          init-method="init" >
-    </bean>
-
-    <bean id="dog" class="com.epam.spring.factories.spring.AnimalFactory">
-        <property name="animal">
-            <bean class="com.epam.spring.model.Dog">
-                <property name="name" value="doggo"/>
-            </bean>
-        </property>
+          init-method="init">
     </bean>
 
 </beans>

@@ -13,6 +13,9 @@ public class Main {
         ConfigurableApplicationContext ctx = new ClassPathXmlApplicationContext("context.xml");
         Cat cat = (Cat) ctx.getBean("cat");
         Dog dog = (Dog) ctx.getBean("dog");
+        Dog dog1 = (Dog) ctx.getBean("dog");
+        Dog dog2 = (Dog) ctx.getBean("dog");
+        Object iamservice = ctx.getBean("iamservice");
         CatRepositoryImpl catRepository = ctx.getBean("catRepository", CatRepositoryImpl.class);
         ctx.close();
     }

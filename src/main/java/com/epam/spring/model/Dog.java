@@ -12,12 +12,11 @@ import lombok.ToString;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-public class Dog implements Animal {
+public class Dog extends AbstractAnimal implements Animal {
 
     @EqualsAndHashCode.Exclude
     private Long id;
     private int age;
-    private String name;
 
     @Override
     public void doAnimalStuff() {
