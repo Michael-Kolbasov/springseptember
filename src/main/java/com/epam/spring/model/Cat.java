@@ -5,7 +5,7 @@ import lombok.*;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Cat {
+public class Cat implements Animal {
     @EqualsAndHashCode.Exclude
     private Long id;
     private int age;
@@ -17,5 +17,15 @@ public class Cat {
 
     private void destroy() {
         System.out.println(getClass() + " in destroy()");
+    }
+
+    public static Cat generateCat() {
+        System.out.println("in Cat.generateCat()");
+        return new Cat((long) (Math.random() * 10000), 25, "default name");
+    }
+
+    @Override
+    public void doAnimalStuff() {
+        System.out.println("meow");
     }
 }

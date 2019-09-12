@@ -3,13 +3,29 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="catRepository" class="com.epam.spring.repository.CatRepositoryImpl" scope="singleton">
+    <bean id="catRepository" class="com.epam.spring.repository.CatRepositoryImpl" destroy-method="destroy">
+        <constructor-arg name="cats">
+            <map key-type="java.lang.String" value-type="com.epam.spring.model.Cat">
+                <entry key="cat1" value-ref="cat"/>
+                <entry key="cat2" value-ref="cat"/>
+                <entry key="cat3" value-ref="cat"/>
+            </map>
+        </constructor-arg>
         <property name="name" value="I am a cat repository"/>
-        <!--<constructor-arg name="cats" value=""/>-->
     </bean>
 
-    <bean id="cat" class="com.epam.spring.model.Cat" name="cat alias" scope="prototype"
-          init-method="init" destroy-method="destroy">
+    <bean id="catFactory" class="com.epam.spring.factories.CatFactory"/>
+
+    <bean id="cat" name="cat alias" scope="prototype" factory-bean="catFactory" factory-method="getObject"
+          init-method="init" >
+    </bean>
+
+    <bean id="dog" class="com.epam.spring.factories.spring.AnimalFactory">
+        <property name="animal">
+            <bean class="com.epam.spring.model.Dog">
+                <property name="name" value="doggo"/>
+            </bean>
+        </property>
     </bean>
 
 </beans>

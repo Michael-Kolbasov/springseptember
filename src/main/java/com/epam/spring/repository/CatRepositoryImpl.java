@@ -6,15 +6,18 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.List;
+import java.util.Map;
 
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
 public class CatRepositoryImpl implements CatRepository {
-
     private String name;
+    private Map<String, Cat> cats;
 
-    private List<Cat> cats;
+    public CatRepositoryImpl(Map<String, Cat> cats) {
+        this.cats = cats;
+    }
 
     @Override
     public Cat findAll() {
@@ -24,5 +27,9 @@ public class CatRepositoryImpl implements CatRepository {
     @Override
     public Cat findById(Long aLong) {
         return null;
+    }
+
+    public void destroy() {
+        System.out.println(getClass() + " in destroy()");
     }
 }
