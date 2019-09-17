@@ -3,7 +3,6 @@ package com.epam.spring;
 import com.epam.spring.model.Cat;
 import com.epam.spring.model.Dog;
 import com.epam.spring.repository.CatRepositoryImpl;
-import org.springframework.context.ApplicationContext;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 

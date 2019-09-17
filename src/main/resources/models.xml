@@ -14,9 +14,4 @@
         </property>
     </bean>
 
-    <!--<bean id="database" class="com.epam.spring.util.DatabaseConnection">
-        <constructor-arg name="username" value="123"/>
-        <constructor-arg name="password" value="123"/>
-    </bean>-->
-
 </beans>
