@@ -12,12 +12,8 @@ import java.util.Map;
 @AllArgsConstructor
 @Data
 public class CatRepositoryImpl implements CatRepository {
-    private String name;
-    private Map<String, Cat> cats;
 
-    public CatRepositoryImpl(Map<String, Cat> cats) {
-        this.cats = cats;
-    }
+    private Map<String, Cat> cats;
 
     @Override
     public Cat findAll() {
@@ -29,7 +25,4 @@ public class CatRepositoryImpl implements CatRepository {
         return null;
     }
 
-    public void destroy() {
-        System.out.println(getClass() + " in destroy()");
-    }
 }

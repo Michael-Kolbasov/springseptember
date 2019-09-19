@@ -16,26 +16,6 @@
         <constructor-arg name="username" value="${db.username}"/>
     </bean>
 
-    <import resource="models.xml"/>
-
-    <bean id="iamservice" class="com.epam.spring.model.Cat"/>
-
-    <bean id="catRepository" class="com.epam.spring.repository.CatRepositoryImpl" lazy-init="true" destroy-method="destroy"
-            depends-on="catFactory">
-        <constructor-arg name="cats">
-            <map key-type="java.lang.String" value-type="com.epam.spring.model.Cat">
-                <entry key="cat1" value-ref="cat"/>
-                <entry key="cat2" value-ref="cat"/>
-                <entry key="cat3" value-ref="cat"/>
-            </map>
-        </constructor-arg>
-        <property name="name" value="I am a cat repository"/>
-    </bean>
-
-    <bean id="catFactory" class="com.epam.spring.factories.CatFactory"/>
-
-    <bean id="cat" name="cat alias" scope="prototype" factory-bean="catFactory" factory-method="getObject"
-          init-method="initXml" destroy-method="destroyXml">
-    </bean>
+    <bean id="catRepository" class="com.epam.spring.repository.CatRepositoryImpl" lazy-init="true"/>
 
 </beans>

@@ -12,7 +12,7 @@ import lombok.ToString;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-public class Dog extends AbstractAnimal implements Animal {
+public class Dog implements Animal {
 
     @EqualsAndHashCode.Exclude
     private Long id;
@@ -22,4 +22,5 @@ public class Dog extends AbstractAnimal implements Animal {
     public void doAnimalStuff() {
         System.out.println("woof");
     }
+
 }
