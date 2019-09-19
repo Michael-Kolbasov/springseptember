@@ -29,7 +29,11 @@ public class CatRepositoryImpl implements CatRepository {
         return null;
     }
 
-    public void destroy() {
-        System.out.println(getClass() + " in destroy()");
+    public void destroyCatRepository() {
+        System.out.println("cat repository call" + " destroyCatRepository()");
+    }
+
+    public void initCatRepository() {
+        System.out.println("cat repository call" + " initCatRepository()");
     }
 }
