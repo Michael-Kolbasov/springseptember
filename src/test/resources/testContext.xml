@@ -3,15 +3,6 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
 
-<!--    <bean id="dinoRepository" class="com.epam.spring.repository.CatRepositoryImpl" lazy-init="true" destroy-method="destroy"-->
-<!--          depends-on="catFactory">-->
-<!--        <property name="animal">-->
-<!--            <bean class="com.epam.spring.model.TestDinosaur">-->
-<!--                <property name="name" value="Frodo"/>-->
-<!--            </bean>-->
-<!--        </property>-->
-<!--    </bean>-->
-
     <bean id="dinoFactory" class="com.epam.spring.factories.DinosaurFactory"/>
 
     <bean id="dinosaur" name="dino alias" scope="prototype" factory-bean="dinoFactory" factory-method="getDinosaur"
