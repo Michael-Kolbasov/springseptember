@@ -29,7 +29,7 @@ public class ContextTest {
     
     @Test
     public void testFactoryWithContext() {
-        TestDinosaur dino = (TestDinosaur) context.getBean("dinosaur");
+        TestDinosaur dino = context.getBean("dinosaur", TestDinosaur.class);
         assertNotNull(dino);
         dino.doRawr();
     }
