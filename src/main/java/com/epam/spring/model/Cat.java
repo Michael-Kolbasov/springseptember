@@ -12,8 +12,13 @@ public class Cat implements Animal {
 
     @EqualsAndHashCode.Exclude
     private Long id;
-    private int age;
     private String name;
+    private int age;
+
+    public Cat(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
 
     @Override
     public void doAnimalStuff() {

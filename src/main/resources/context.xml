@@ -6,16 +6,4 @@
 
     <context:component-scan base-package="com.epam.spring"/>
 
-    <bean class="org.springframework.context.support.PropertySourcesPlaceholderConfigurer">
-        <property name="location" value="database.properties"/>
-    </bean>
-
-    <bean id="databaseConnection" class="com.epam.spring.util.DatabaseConnection">
-        <constructor-arg name="url" value="${db.url}"/>
-        <constructor-arg name="password" value="${db.password}"/>
-        <constructor-arg name="username" value="${db.username}"/>
-    </bean>
-
-    <bean id="catRepository" class="com.epam.spring.repository.CatRepositoryImpl" lazy-init="true"/>
-
 </beans>
