@@ -3,7 +3,9 @@ package com.epam.spring;
 import com.epam.spring.model.TestDinosaur;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.test.context.junit4.SpringRunner;
 
 import static org.junit.Assert.assertNotNull;
 
@@ -13,6 +15,8 @@ import static org.junit.Assert.assertNotNull;
  *
  * hints: module - spring test, test runner classes
  */
+
+@RunWith(SpringRunner.class)
 public class ContextTest {
     
     ClassPathXmlApplicationContext context;
