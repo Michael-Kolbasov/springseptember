@@ -8,7 +8,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 /**
  * hw1
@@ -25,6 +25,6 @@ public class ContextTest {
 
   @Test
   public void testContextLoads() {
-    assertNotNull("There is no bean with testConfig name", ctx.getBean(TestConfig.class));
+    assertTrue("There is no bean with testConfig name", ctx.containsBean("testConfig"));
   }
 }
