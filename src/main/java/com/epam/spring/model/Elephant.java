@@ -4,6 +4,9 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+/**
+ * Elephant class with fields and methods set in context.
+ */
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
