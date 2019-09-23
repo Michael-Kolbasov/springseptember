@@ -5,7 +5,8 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import static org.junit.Assert.assertNotNull;
 
@@ -16,7 +17,8 @@ import static org.junit.Assert.assertNotNull;
  * hints: module - spring test, test runner classes
  */
 
-@RunWith(SpringRunner.class)
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration(locations = {"/testContext.xml"})
 public class ContextTest {
     
     ClassPathXmlApplicationContext context;
