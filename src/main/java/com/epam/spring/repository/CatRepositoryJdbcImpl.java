@@ -4,7 +4,7 @@ import com.epam.spring.model.Cat;
 import com.epam.spring.util.DatabaseConnection;
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Scope;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
 
 import java.sql.Connection;
@@ -15,8 +15,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Repository
-@Scope
-public class CatRepositoryH2Impl implements CatRepository {
+@Qualifier("jdbcRepository")
+public class CatRepositoryJdbcImpl implements CatRepository {
 
     private final static String FIND_ALL = "SELECT * FROM cats";
     private final static String SAVE = "INSERT INTO cats (name, age) VALUES (?, ?)";

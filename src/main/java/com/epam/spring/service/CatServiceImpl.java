@@ -4,6 +4,7 @@ import com.epam.spring.model.Cat;
 import com.epam.spring.repository.CatRepository;
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -11,7 +12,7 @@ import java.util.List;
 @Service
 public class CatServiceImpl implements CatService {
 
-    @Setter(onMethod_={@Autowired})
+    @Setter(onMethod_={@Autowired, @Qualifier("jdbcTemplateRepository")})
     private CatRepository catRepository;
 
     @Override
