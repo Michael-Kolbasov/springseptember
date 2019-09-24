@@ -41,7 +41,7 @@ public class Cat implements Animal, InitializingBean, DisposableBean {
 
     public static Cat generateCat() {
         System.out.println("in Cat.generateCat()");
-        return new Cat((long) (Math.random() * 10000), 25, "default name");
+        return new Cat();
     }
 
     @Override
