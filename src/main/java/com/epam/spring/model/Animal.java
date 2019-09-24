@@ -4,5 +4,5 @@ import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.context.event.EventListener;
 
 public interface Animal {
-    void doAnimalStuff();
+    String doAnimalStuff();
 }

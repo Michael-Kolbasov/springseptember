@@ -39,14 +39,14 @@ public class Cat implements Animal, InitializingBean, DisposableBean {
         System.out.println(getClass() + " in destroyXml()");
     }
 
-    public static Cat generateCat() {
-        System.out.println("in Cat.generateCat()");
-        return new Cat((long) (Math.random() * 10000), 25, "default name");
-    }
+//    public static Cat generateCat() {
+//        System.out.println("in Cat.generateCat()");
+//        //return new Cat((long) (Math.random() * 10000), 25, "default name");
+//    }
 
     @Override
-    public void doAnimalStuff() {
-        System.out.println("meow");
+    public String doAnimalStuff() {
+        return "meow";
     }
 
     @Override
