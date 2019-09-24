@@ -1,25 +1,22 @@
 package com.epam.spring.model;
 
 import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.EqualsAndHashCode;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
 
-@Getter
-@Setter
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString
-public class Dog extends AbstractAnimal implements Animal {
+public class Unicorn implements Animal {
 
     @EqualsAndHashCode.Exclude
     private Long id;
     private int age;
+    private String name;
 
     @Override
     public String doAnimalStuff() {
-        return  "woof";
+       return "Rainbow";
     }
 }
