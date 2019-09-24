@@ -14,7 +14,13 @@ public class CatBeanPostProcessor implements BeanPostProcessor {
     @Override
     public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {
         if (beanName.equals("cat")) {
-            System.out.println("in CatBeanPostProcessor postProcessBeforeInitialization()");
+
+            System.out.println("create cat, call postProcessBeforeInitialization()");
+        }
+
+        if(beanName.equals("catFactory")) {
+
+          System.out.println("create catFactory, call postProcessBeforeInitialization()");
         }
         return bean;
     }
@@ -22,22 +28,13 @@ public class CatBeanPostProcessor implements BeanPostProcessor {
     @Override
     public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {
         if (beanName.equals("cat")) {
-            System.out.println("in CatBeanPostProcessor postProcessAfterInitialization()");
-            Class<?> aClass = bean.getClass();
-            Field[] fields = aClass.getDeclaredFields();
-            for (Field field : fields) {
-                Annotation[] declaredAnnotations = field.getDeclaredAnnotations();
-                for (Annotation declaredAnnotation : declaredAnnotations) {
-                    if (declaredAnnotation.annotationType() == InjectRandomInt.class ) {
-                        try {
-                            field.setAccessible(true);
-                            field.set(bean, 10000L);
-                        } catch (IllegalAccessException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                }
-            }
+
+          System.out.println("created cat, call postProcessAfterInitialization()");
+        }
+
+        if(beanName.equals("catFactory")) {
+
+          System.out.println("created catFactory, call postProcessAfterInitialization()");
         }
         return bean;
     }

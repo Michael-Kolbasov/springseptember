@@ -2,11 +2,7 @@ package com.epam.spring.model;
 
 import com.epam.spring.annotations.InjectRandomInt;
 import lombok.*;
-import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.DisposableBean;
-import org.springframework.beans.factory.InitializingBean;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.beans.factory.config.BeanPostProcessor;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
@@ -14,7 +10,7 @@ import javax.annotation.PreDestroy;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Cat implements Animal, InitializingBean, DisposableBean {
+public class Cat implements Animal, DisposableBean {
     @EqualsAndHashCode.Exclude
     @InjectRandomInt(min = 100, max=200)
     private Long id;
@@ -23,25 +19,27 @@ public class Cat implements Animal, InitializingBean, DisposableBean {
 
     @PostConstruct
     private void postConstruct() {
-        System.out.println("in PostConstruct()");
+        System.out.println("cat call postConstruct");
     }
 
     @PreDestroy
     private void preDestroy() {
-        System.out.println("In PreDestroy()");
+        System.out.println("cat call preDestroy");
     }
 
-    private void initXml() {
-        System.out.println(getClass() + " in initXml()");
+    private void onCatInitFromXml() {
+
+        System.out.println("Cat calls" + " onCatInitFromXml()");
     }
 
-    private void destroyXml() {
-        System.out.println(getClass() + " in destroyXml()");
+    private void onCatDestroyFromXml() {
+
+      System.out.println("Cat calls" + " onCatDestroyFromXml()");
     }
 
     public static Cat generateCat() {
         System.out.println("in Cat.generateCat()");
-        return new Cat((long) (Math.random() * 10000), 25, "default name");
+        return new Cat();
     }
 
     @Override
@@ -52,10 +50,5 @@ public class Cat implements Animal, InitializingBean, DisposableBean {
     @Override
     public void destroy() throws Exception {
         System.out.println("in DisplosableBean destroy()");
-    }
-
-    @Override
-    public void afterPropertiesSet() throws Exception {
-        System.out.println("in InitializingBean afterPropertiesSet()");
     }
 }
