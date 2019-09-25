@@ -1,12 +1,12 @@
 package com.epam.spring.model;
 
 import com.epam.spring.annotations.InjectRandomInt;
-import lombok.*;
-import org.springframework.beans.BeansException;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.InitializingBean;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.beans.factory.config.BeanPostProcessor;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
