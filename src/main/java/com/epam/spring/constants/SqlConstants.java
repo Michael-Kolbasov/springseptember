@@ -15,6 +15,10 @@ public interface SqlConstants {
             "('kotik1', 2),\n" +
             "('kotik2', 12),\n" +
             "('kotik3', 7);" ;
+
+    String FIND_CAT_BY_ID_NAMED = "select * from cats where id = :id";
     String FIND_CAT_BY_ID = "select * from cats where id = ?";
+    String FIND_ALL_CATS = "select * from cats";
+    String SAVE_CAT = "insert into cats (name, age) values (:name, :age)";
 
 }

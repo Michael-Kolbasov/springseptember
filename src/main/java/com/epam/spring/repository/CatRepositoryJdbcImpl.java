@@ -61,4 +61,9 @@ public class CatRepositoryJdbcImpl implements CatRepository {
             throw new RuntimeException(e);
         }
     }
+
+    @Override
+    public void save(List<Cat> entities) {
+
+    }
 }

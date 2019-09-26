@@ -12,16 +12,16 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 @Component
-@PropertySource("classpath:/database.properties")
+@PropertySource("classpath:/hibernate.properties")
 public class DatabaseConnection {
 
-    @Value("${db.url}")
+    @Value("${hibernate.connection.url}")
     private String url;
 
-    @Value("${db.username}")
+    @Value("${hibernate.connection.username}")
     private String username;
 
-    @Value("${db.password}")
+    @Value("${hibernate.connection.password}")
     private String password;
 
     @Getter
