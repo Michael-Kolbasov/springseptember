@@ -17,6 +17,7 @@ public class Dog extends AbstractAnimal implements Animal {
     @EqualsAndHashCode.Exclude
     private Long id;
     private int age;
+    private String name;
 
     @Override
     public void doAnimalStuff() {
