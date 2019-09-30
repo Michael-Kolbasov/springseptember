@@ -17,15 +17,22 @@ import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
+
+import static java.util.stream.Collectors.toMap;
 
 @Repository
 @Qualifier("jdbcTemplateRepository")
 public class CatRepositoryJdbcTemplateImpl implements CatRepository {
 
-    @Setter(onMethod_= {@Autowired})
+    public static final String NAME = "name";
+    public static final String AGE = "age";
+
+
+    @Setter(onMethod_ = {@Autowired})
     private JdbcTemplate jdbcTemplate;
 
-    @Setter(onMethod_= {@Autowired})
+    @Setter(onMethod_ = {@Autowired})
     private NamedParameterJdbcTemplate namedParameterJdbcTemplate;
 
     @Override
@@ -57,15 +64,21 @@ public class CatRepositoryJdbcTemplateImpl implements CatRepository {
     @Override
     public void save(Cat entity) {
         Map<String, Object> params = new HashMap<String, Object>() {{
-            put("name", entity.getName());
-            put("age", entity.getAge());
+            put(NAME, entity.getName());
+            put(AGE, entity.getAge());
         }};
         namedParameterJdbcTemplate.update(SqlConstants.SAVE_CAT, params);
     }
 
     @Override
     public void save(List<Cat> entities) {
-
+        Map<String, Object> params = new HashMap<>();
+        entities.forEach((entity) -> {
+                    params.put(NAME, entity.getName());
+                    params.put(AGE, entity.getAge());
+                }
+        );
+        namedParameterJdbcTemplate.update(SqlConstants.SAVE_CAT, params);
     }
 
 

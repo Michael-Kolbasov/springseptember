@@ -21,7 +21,7 @@ public class CatRepositoryJdbcImpl implements CatRepository {
     private final static String FIND_ALL = "SELECT * FROM cats";
     private final static String SAVE = "INSERT INTO cats (name, age) VALUES (?, ?)";
 
-    @Setter(onMethod_={@Autowired})
+    @Setter(onMethod_ = {@Autowired})
     private DatabaseConnection databaseConnection;
 
     @Override
@@ -64,6 +64,20 @@ public class CatRepositoryJdbcImpl implements CatRepository {
 
     @Override
     public void save(List<Cat> entities) {
-
+        Connection connection = databaseConnection.getConnection();
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(SAVE);
+            entities.forEach(entity -> {
+                try {
+                    preparedStatement.setString(1, entity.getName());
+                    preparedStatement.setInt(2, entity.getAge());
+                    preparedStatement.execute();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            });
+        } catch (SQLException e) {
+            throw new RuntimeException();
+        }
     }
 }
