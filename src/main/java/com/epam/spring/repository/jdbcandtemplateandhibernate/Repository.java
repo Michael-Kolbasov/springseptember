@@ -1,4 +1,4 @@
-package com.epam.spring.repository;
+package com.epam.spring.repository.jdbcandtemplateandhibernate;
 
 import java.util.List;
 
