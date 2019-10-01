@@ -1,17 +1,13 @@
-package com.epam.spring.repository;
+package com.epam.spring.repository.jdbcandtemplateandhibernate.hibernate;
 
-import com.epam.spring.constants.SqlConstants;
 import com.epam.spring.model.Cat;
+import com.epam.spring.repository.jdbcandtemplateandhibernate.CatRepository;
 import lombok.Setter;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
-import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Propagation;
-import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -20,8 +16,7 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import java.util.List;
 
-@Repository
-@Qualifier("hibernateRepository")
+@Repository("hibernateRepository")
 public class CatRepositoryHibernateImpl implements CatRepository {
 
     @Setter(onMethod_= {@Autowired})

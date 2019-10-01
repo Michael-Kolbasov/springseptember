@@ -1,10 +1,10 @@
-package com.epam.spring.repository;
+package com.epam.spring.repository.jdbcandtemplateandhibernate.jdbc;
 
 import com.epam.spring.model.Cat;
+import com.epam.spring.repository.jdbcandtemplateandhibernate.CatRepository;
 import com.epam.spring.util.DatabaseConnection;
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
 
 import java.sql.Connection;
@@ -14,8 +14,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-@Repository
-@Qualifier("jdbcRepository")
+@Repository("jdbcRepository")
 public class CatRepositoryJdbcImpl implements CatRepository {
 
     private final static String FIND_ALL = "SELECT * FROM cats";
