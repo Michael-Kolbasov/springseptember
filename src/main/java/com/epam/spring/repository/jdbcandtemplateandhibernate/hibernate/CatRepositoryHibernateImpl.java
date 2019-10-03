@@ -7,6 +7,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
@@ -19,7 +20,7 @@ import java.util.List;
 @Repository("hibernateRepository")
 public class CatRepositoryHibernateImpl implements CatRepository {
 
-    @Setter(onMethod_= {@Autowired})
+    @Setter(onMethod_= {@Autowired, @Qualifier("sessionFactoryBean")})
     private SessionFactory sessionFactory;
 
     @Override

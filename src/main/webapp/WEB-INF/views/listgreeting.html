@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <title>List Greeting page</title>
+</head>
+<body>
+<table>
+    <tr>
+        <td>Element</td>
+    </tr>
+    <tr th:each="element : ${all}">
+        <td th:text="${element}"></td>
+    </tr>
+</table>
+</body>
+</html>

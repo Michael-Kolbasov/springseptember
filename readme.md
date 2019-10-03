@@ -8,3 +8,5 @@ for plain `jdbc` and `jdbctemplate` repositories
 Spring Data Query Language
 https://docs.spring.io/spring-data/jpa/docs/2.1.10.RELEASE/reference/html/
 2) explore @Transactional: propagation, isolation etc
+* hm4: branch out from lec-8-mvc and create ExceptionHandler to handle
+some kind of custom exception thrown from Controller

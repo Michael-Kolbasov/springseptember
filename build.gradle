@@ -1,16 +1,20 @@
 plugins {
     id 'java'
     id 'application'
+    id 'war'
 }
 
 group 'com.epam.springseptember'
-version '1.0-SNAPSHOT'
 mainClassName = 'com.epam.spring.Main'
 
 jar {
     manifest {
         attributes('Main-Class':'com.epam.spring.Main')
     }
+}
+
+war {
+    archivesBaseName = "spring"
 }
 
 sourceCompatibility = 1.8
@@ -22,8 +26,14 @@ repositories {
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
 
-    compile "org.springframework:spring-context:5.1.9.RELEASE"
+    compile group: 'org.springframework', name: 'spring-context', version: '5.1.9.RELEASE'
     compile group: 'org.springframework.data', name: 'spring-data-jpa', version: '2.1.10.RELEASE'
+    compile group: 'org.springframework', name: 'spring-webmvc', version: '5.1.9.RELEASE'
+    compile group: 'org.springframework.data', name: 'spring-data-rest-webmvc', version: '3.2.0.RELEASE'
+
+    providedCompile group: 'javax.servlet', name: 'javax.servlet-api', version: '3.1.0'
+    compile group: 'org.thymeleaf', name: 'thymeleaf-spring5', version: '3.0.11.RELEASE'
+    compile group: 'javax.validation', name: 'validation-api', version: '2.0.1.Final'
 
     compile group: 'org.hibernate', name: 'hibernate-core', version: '5.4.5.Final'
 

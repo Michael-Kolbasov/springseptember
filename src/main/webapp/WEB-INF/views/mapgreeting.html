@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <title>Map Greeting page</title>
+</head>
+<body>
+<table>
+    <tr>
+        <td>Name</td>
+        <td>Age</td>
+    </tr>
+    <tr th:each="element : ${name}">
+        <td th:text="${element}"></td>
+    </tr>
+    <tr th:each="element : ${age}">
+        <td th:text="${element}"></td>
+    </tr>
+</table>
+</body>
+</html>

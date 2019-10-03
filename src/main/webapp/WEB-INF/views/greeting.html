@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <title>Greeting page</title>
+</head>
+<body>
+<p>
+    <span th:text="'Hello, ' + ${name}"/> <br>
+    <span th:text="'Your age is: ' + ${age}"
+            th:if="${age} != null"/>
+</p>
+</body>
+</html>
