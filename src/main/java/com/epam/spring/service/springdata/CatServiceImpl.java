@@ -6,7 +6,6 @@ import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Collection;
@@ -19,6 +18,7 @@ public class CatServiceImpl implements CatService<Cat, Long> {
     private CatRepository catRepository;
 
     @Override
+    @Transactional
     public List<Cat> findAll() {
         return catRepository.findAll();
     }
