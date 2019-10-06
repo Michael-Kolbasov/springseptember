@@ -65,7 +65,9 @@ public class CatRepositoryJdbcTemplateImpl implements CatRepository {
 
     @Override
     public void save(List<Cat> entities) {
-
+        for (Cat cat: entities) {
+            save(cat);
+        }
     }
 
 

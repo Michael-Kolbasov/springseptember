@@ -64,6 +64,16 @@ public class CatRepositoryJdbcImpl implements CatRepository {
 
     @Override
     public void save(List<Cat> entities) {
-
+        Connection connection = databaseConnection.getConnection();
+        try {
+            for(Cat cat: entities) {
+                PreparedStatement preparedStatement = connection.prepareStatement(SAVE);
+                preparedStatement.setString(1, cat.getName());
+                preparedStatement.setInt(2, cat.getAge());
+                preparedStatement.execute();
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
