@@ -1,20 +1,29 @@
-plugins {
-    id 'java'
-    id 'application'
-    id 'war'
-}
-
-group 'com.epam.springseptember'
-mainClassName = 'com.epam.spring.Main'
-
-jar {
-    manifest {
-        attributes('Main-Class':'com.epam.spring.Main')
+buildscript {
+    ext {
+        springBootVersion = '2.1.9.RELEASE'
+    }
+    repositories {
+        maven { url 'https://plugins.gradle.org/m2/' }
+    }
+    dependencies {
+        classpath "org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}"
     }
 }
 
-war {
-    archivesBaseName = "spring"
+plugins {
+    id 'java'
+    id 'application'
+}
+
+apply plugin: 'org.springframework.boot' //gradle bootRun / bootJar
+
+group 'com.epam.springseptember'
+mainClassName = 'com.epam.spring.App'
+
+jar {
+    manifest {
+        attributes('Main-Class':'com.epam.spring.App')
+    }
 }
 
 sourceCompatibility = 1.8
@@ -24,25 +33,22 @@ repositories {
 }
 
 dependencies {
-    testCompile group: 'junit', name: 'junit', version: '4.12'
+    testCompile group: 'org.springframework.boot', name: 'spring-boot-starter-test', version: '2.1.9.RELEASE'
 
-    compile group: 'org.springframework', name: 'spring-context', version: '5.2.0.RELEASE'
-    compile group: 'org.springframework', name: 'spring-webmvc', version: '5.2.0.RELEASE'
-    compile group: 'org.springframework', name: 'spring-aop', version: '5.2.0.RELEASE'
-    compile group: 'org.springframework.security', name: 'spring-security-web', version: '5.2.0.RELEASE'
-    compile group: 'org.springframework.security', name: 'spring-security-config', version: '5.2.0.RELEASE'
-    compile group: 'org.springframework.data', name: 'spring-data-jpa', version: '2.1.10.RELEASE'
-    compile group: 'org.springframework.data', name: 'spring-data-rest-webmvc', version: '3.2.0.RELEASE'
-
-    compile group: 'org.aspectj', name: 'aspectjweaver', version: '1.9.4'
-
-    providedCompile group: 'javax.servlet', name: 'javax.servlet-api', version: '3.1.0'
-    compile group: 'org.thymeleaf', name: 'thymeleaf-spring5', version: '3.0.11.RELEASE'
-    compile group: 'javax.validation', name: 'validation-api', version: '2.0.1.Final'
-
-    compile group: 'org.hibernate', name: 'hibernate-core', version: '5.4.5.Final'
+    //compile group: 'org.springframework.boot', name: 'spring-boot-starter', version: '2.1.9.RELEASE'
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: '2.1.9.RELEASE'
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-aop', version: '2.1.9.RELEASE'
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-security', version: '2.1.9.RELEASE'
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-data-jpa', version: '2.1.9.RELEASE'
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-thymeleaf', version: '2.1.9.RELEASE'
 
     compile group: 'org.projectlombok', name: 'lombok', version: '1.18.8'
-    annotationProcessor 'org.projectlombok:lombok:1.18.8'
     compile group: 'com.h2database', name: 'h2', version: '1.4.199'
+
+    annotationProcessor 'org.projectlombok:lombok:1.18.8'
+    compileOnly('org.springframework.boot:spring-boot-configuration-processor:2.1.9.RELEASE')
+
+    compile project(':starter')
 }
+
+compileJava.dependsOn processResources

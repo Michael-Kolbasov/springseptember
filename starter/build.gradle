@@ -1,0 +1,16 @@
+plugins {
+    id 'java'
+}
+
+group 'com.epam.springseptember'
+version 'unspecified'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile group: 'org.springframework', name: 'spring-context', version: '5.1.10.RELEASE'
+}

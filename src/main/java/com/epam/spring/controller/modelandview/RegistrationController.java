@@ -1,7 +1,7 @@
 package com.epam.spring.controller.modelandview;
 
 import com.epam.spring.model.User;
-import com.epam.spring.repository.springdata.UserRepository;
+import com.epam.spring.repository.UserRepository;
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;

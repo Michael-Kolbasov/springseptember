@@ -1,11 +1,9 @@
 package com.epam.spring.controller.rest;
 
-import com.epam.spring.annotation.Loggable;
 import com.epam.spring.model.Cat;
-import com.epam.spring.service.springdata.CatService;
+import com.epam.spring.service.CatService;
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -19,24 +17,21 @@ import java.util.List;
 /**
  * Jackson library transforms models to JSON
  */
-@SuppressWarnings("unchecked")
-@Loggable
 @RestController
 @RequestMapping("/cats")
 public class CatController {
 
-    @Setter(onMethod_= {@Autowired, @Qualifier("catServiceSpringData")})
+    @Setter(onMethod_= {@Autowired})
     private CatService catService;
 
     @GetMapping
-    @Loggable
     public List<Cat> allCats() {
         return catService.findAll();
     }
 
     @GetMapping("/{id}")
     public Cat catById(@PathVariable("id") Long id) {
-        return (Cat) catService.findById(id);
+        return catService.findById(id);
     }
 
     @GetMapping("/save")
