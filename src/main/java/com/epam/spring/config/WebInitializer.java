@@ -26,6 +26,7 @@ public class WebInitializer extends AbstractAnnotationConfigDispatcherServletIni
             Collection<String> mappings = servletRegistration.getMappings();
             mappings.forEach(element -> System.out.print(element + " ::: "));
         });
+        System.out.println();
     }
 
     @Override

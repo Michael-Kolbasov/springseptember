@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Registration</title>
+</head>
+<body>
+<div>
+    <fieldset>
+        <label>
+            Name: <input id="name" type="text" name="name"/>
+        </label>
+        <label>
+            Password: <input id="password" type="password" name="password">
+        </label>
+        <input type="submit" onclick="post()" value="Submit"/>
+    </fieldset>
+</div>
+
+<script>
+    const post = () => {
+        const body = {
+            name: document.getElementById('name').value,
+            password: document.getElementById('password').value
+        };
+        fetch('/spring/registration', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json;charset=utf-8'
+            },
+            body: JSON.stringify(body)
+        })
+    }
+    window.post = post
+</script>
+</body>
+</html>

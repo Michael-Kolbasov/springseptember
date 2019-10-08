@@ -14,11 +14,11 @@ import org.springframework.stereotype.Component;
 @Component
 public class LoggingAspect extends PointcutStorage {
 
-    @Before("anyCatService()")
+    /*@Before("anyCatService()")
     private void logBeforeAnyCatService() {
         System.out.println("logging before cat service");
         System.out.println();
-    }
+    }*/
 
     /*@After("subjectMethodAnnotatedAsAopLoggable() || subjectClassAnnotatedAsAopLoggable()")
     private void logAfterLoggable() {
