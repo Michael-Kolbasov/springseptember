@@ -21,7 +21,7 @@ import static com.epam.spring.enums.UserRole.USER;
 @Configuration
 @EnableWebSecurity
 @Profile({"securityjdbc", "default", "!securityinmemory"})
-@EnableGlobalMethodSecurity(securedEnabled = true) // enables method-level @Secured protection
+//@EnableGlobalMethodSecurity(securedEnabled = true) // enables method-level @Secured protection
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Setter(onMethod_= {@Autowired})

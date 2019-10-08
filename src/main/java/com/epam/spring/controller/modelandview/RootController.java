@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class RootController {
 
     @GetMapping("/")
-    @Secured({"ROLE_ADMIN", "ROLE_USER"}) //must have either ADMIN or USER role, enabled by @EnableGlobalMethodSecurity
+    //@Secured({"ROLE_ADMIN", "ROLE_USER"}) //must have either ADMIN or USER role, enabled by @EnableGlobalMethodSecurity
     public String index() {
         return "root";
     }
