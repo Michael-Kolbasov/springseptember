@@ -1,6 +1,5 @@
 package com.epam.spring.config;
 
-import com.epam.spring.model.Cat;
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.CacheManager;
@@ -48,7 +47,7 @@ public class DatabaseConfig {
     public LocalSessionFactoryBean sessionFactoryBean() throws IOException {
         LocalSessionFactoryBean factoryBean = new LocalSessionFactoryBean();
         factoryBean.setDataSource(dataSource());
-        factoryBean.setAnnotatedClasses(Cat.class);
+        factoryBean.setPackagesToScan("com.epam.spring.model");
         Properties properties = new Properties();
         properties.load(new ClassPathResource("hibernate.properties").getInputStream());
         factoryBean.setHibernateProperties(properties);

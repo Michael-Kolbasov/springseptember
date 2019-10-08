@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Root</title>
+</head>
+<body>
+
+<div>
+    <a th:href="${#servletContext.contextPath} + '/cats'">All cats</a>
+    <a th:href="${#servletContext.contextPath} + '/cats/save'">Save cat</a>
+    <a th:href="${#servletContext.contextPath} + '/principal'">Principal</a>
+    <a th:href="${#servletContext.contextPath} + '/registration'">Registration</a>
+    <a th:href="${#servletContext.contextPath} + '/logout'">Logout</a>
+</div>
+
+</body>
+</html>
